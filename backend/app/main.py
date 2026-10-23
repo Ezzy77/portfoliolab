@@ -1,7 +1,5 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import model_validator
-
 from backend.app.schemas import PortfolioValuationRequest, PortfolioValuationResponse
 from backend.app.services.valuation import (
     calculate_portfolio_value,
