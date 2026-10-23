@@ -44,3 +44,7 @@ class PortfolioValuationResponse(BaseModel):
     positions: list[PositionValuation]
     total_value: Decimal
 
+class PortfolioValuationResponse(BaseModel):
+    positions: list[PositionValuation]
+    total_value: Decimal
+    concentration: Decimal

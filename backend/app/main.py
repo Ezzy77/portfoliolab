@@ -6,6 +6,12 @@ from backend.app.services.valuation import (
     calculate_position_value
 )
 
+from backend.app.services.valuation import (
+    calculate_position_value,
+    calculate_portfolio_value,
+    calculate_portfolio_concentration,
+)
+
 app = FastAPI(
     title="Portfolio Valuation API", 
     description="An API for calculating the value of financial portfolios based on positions and current market prices.",
@@ -53,4 +59,5 @@ def portfolio_valuation(request: PortfolioValuationRequest) -> PortfolioValuatio
             "market_value": market_value,
             "weight": weight
             })
-    return PortfolioValuationResponse(total_value=total_value, positions=valued_positions)
+    concentration = calculate_portfolio_concentration(positions)
+    return PortfolioValuationResponse(total_value=total_value, positions=valued_positions, concentration=concentration)

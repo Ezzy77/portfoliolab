@@ -45,6 +45,7 @@ def test_portfolio_valuation():
     assert apple["symbol"] == "AAPL"
     assert float(apple["market_value"]) == 2000.0
     assert float(apple["weight"]) == 0.5
+    assert float(data["concentration"]) == 0.5
 
 
 def test_negative_quantity_is_rejected():
